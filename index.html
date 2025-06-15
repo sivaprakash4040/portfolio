@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siva Prakash - Odoo Freelance Developer Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlroXzY0v4u/oGz8Zf8/G2k3/3j5bN5a/I/0B8Fw4r0bA6B4t5z5u8v7pD8O5l5w5Z5X5C5v5y5N5z5I5Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Lighter background */
+            color: #334155; /* Darker text */
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            font-size: 2.75rem; /* Slightly larger title for more impact */
+            color: #1e293b; /* Darker title color */
+            font-weight: 700; /* Bolder font weight */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle text shadow */
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 70%; /* Wider underline */
+            height: 6px; /* Thicker underline */
+            background: linear-gradient(to right, #1a73e8, #6366f1); /* Blue to Indigo gradient */
+            border-radius: 9999px; /* Fully rounded */
+            transition: width 0.3s ease-in-out; /* Smooth transition for hover effect */
+        }
+        /* Hover effect for section titles */
+        .section-title:hover::after {
+            width: 100%; /* Expand underline on hover */
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #1a73e8; /* Google Blue */
+            color: white;
+            padding: 1rem 1.25rem; /* Larger padding */
+            border-radius: 9999px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+            display: none; /* Hidden by default */
+            z-index: 1000;
+        }
+        .scroll-to-top:hover {
+            background-color: #0d47a1; /* Darker blue on hover */
+            transform: translateY(-3px);
+        }
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Project card hover effect */
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-gray-900 hover:text-blue-700 transition-colors duration-300">Siva Prakash</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-700 hover:text-blue-700 transition-colors duration-300 font-medium py-2 px-3 rounded-md hover:bg-gray-100">About</a>
+                <a href="#skills" class="text-gray-700 hover:text-blue-700 transition-colors duration-300 font-medium py-2 px-3 rounded-md hover:bg-gray-100">Skills</a>
+                <a href="#projects" class="text-gray-700 hover:text-blue-700 transition-colors duration-300 font-medium py-2 px-3 rounded-md hover:bg-gray-100">Projects</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-700 transition-colors duration-300 font-medium py-2 px-3 rounded-md hover:bg-gray-100">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none p-2 rounded-md hover:bg-gray-100">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 shadow-inner">
+            <a href="#about" class="block px-6 py-3 text-gray-700 hover:bg-blue-50 font-medium">About</a>
+            <a href="#skills" class="block px-6 py-3 text-gray-700 hover:bg-blue-50 font-medium">Skills</a>
+            <a href="#projects" class="block px-6 py-3 text-gray-700 hover:bg-blue-50 font-medium">Projects</a>
+            <a href="#contact" class="block px-6 py-3 text-gray-700 hover:bg-blue-50 font-medium">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-28 md:py-40 text-center flex items-center justify-center min-h-screen-75vh">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-6 leading-tight animate-fade-in-up">Siva Prakash</h1>
+            <p class="text-3xl md:text-4xl font-light mb-10 animate-fade-in-up delay-100">
+                Your <span class="font-semibold text-teal-300">Freelance Odoo Expert</span> with 4+ Years of Experience
+            </p>
+            <a href="#contact" class="bg-white text-blue-700 hover:bg-blue-100 transition-all duration-300 px-10 py-4 rounded-full text-xl font-bold shadow-2xl inline-block transform hover:scale-105 animate-fade-in-up delay-200">
+                Hire Me for Your Project <i class="fas fa-handshake ml-3"></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16 md:py-24">
+
+        <!-- About Section -->
+        <section id="about" class="mb-20 md:mb-32 bg-white p-10 md:p-16 rounded-xl shadow-2xl transition-all duration-300 hover:shadow-3xl">
+            <h2 class="section-title text-gray-900 mb-10">About My Freelance Services</h2>
+            <p class="text-lg md:text-xl leading-relaxed text-gray-700">
+                With <span class="font-semibold text-blue-600">4+ years of dedicated experience</span> as a <span class="font-semibold text-blue-600">Freelance Odoo Developer</span>, I partner with businesses like yours to streamline operations and enhance efficiency through powerful ERP solutions. My expertise lies in transforming your unique business challenges into robust, user-friendly Odoo customizations. I deliver comprehensive services including:
+            </p>
+            <ul class="list-disc list-inside text-lg md:text-xl text-gray-700 space-y-3 mt-6 ml-4">
+                <li><span class="font-semibold text-blue-600">Custom Odoo Module Development:</span> Building tailor-made modules to fit your exact business workflows.</li>
+                <li><span class="font-semibold text-blue-600">Seamless Odoo Migrations & Upgrades:</span> Ensuring smooth transitions to newer Odoo versions with minimal downtime.</li>
+                <li><span class="font-semibold text-blue-600">Third-Party System Integrations:</span> Connecting Odoo with your existing applications for unified data flow.</li>
+                <li><span class="font-semibold text-blue-600">Performance Optimization:</span> Fine-tuning your Odoo system for speed and reliability.</li>
+                <li><span class="font-semibold text-blue-600">Responsive Web UI/UX with OWL:</span> Crafting intuitive and modern web interfaces within Odoo.</li>
+            </ul>
+            <p class="text-lg md:text-xl leading-relaxed text-gray-700 mt-6">
+                I am committed to delivering high-quality, scalable ERP solutions that not only solve your immediate problems but also drive long-term business growth. Let's discuss how Odoo can revolutionize your operations.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-20 md:mb-32 bg-white p-10 md:p-16 rounded-xl shadow-2xl transition-all duration-300 hover:shadow-3xl">
+            <h2 class="section-title text-gray-900 mb-10">My Core Expertise & Tools</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                <div class="flex items-start">
+                    <div class="text-blue-600 text-3xl mr-4 mt-1"><i class="fas fa-code"></i></div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2 text-gray-800">Programming Languages</h3>
+                        <ul class="list-none text-lg text-gray-700 space-y-1">
+                            <li>Python (Core Odoo Development)</li>
+                            <li>SQL (Database Optimization & Management)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="text-blue-600 text-3xl mr-4 mt-1"><i class="fas fa-cogs"></i></div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2 text-gray-800">Odoo & Frameworks</h3>
+                        <ul class="list-none text-lg text-gray-700 space-y-1">
+                            <li>Odoo Development (v14-v18)</li>
+                            <li>Owl Framework (Frontend Customization)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="text-blue-600 text-3xl mr-4 mt-1"><i class="fas fa-tools"></i></div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2 text-gray-800">Development Workflow</h3>
+                        <ul class="list-none text-lg text-gray-700 space-y-1">
+                            <li>Web Development Practices</li>
+                            <li>Git & GitHub (Version Control)</li>
+                            <li>API Integrations (Seamless Connectivity)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:col-span-2 lg:col-span-3 flex items-start">
+                    <div class="text-blue-600 text-3xl mr-4 mt-1"><i class="fas fa-handshake"></i></div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2 text-gray-800">Client-Focused Competencies</h3>
+                        <ul class="list-none text-lg text-gray-700 space-y-1">
+                            <li>Odoo Customization & Business Process Automation</li>
+                            <li>System Integration & Efficiency Enhancement</li>
+                            <li>Performance Optimization & Scalability</li>
+                            <li>Problem-Solving & Technical Troubleshooting</li>
+                            <li>Responsive UI/UX Development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-20 md:mb-32 bg-white p-10 md:p-16 rounded-xl shadow-2xl transition-all duration-300 hover:shadow-3xl">
+            <h2 class="section-title text-gray-900 mb-10">My Project Portfolio: Delivering Solutions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <!-- Project 1 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md project-card transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">ERP System Customizations & Smooth Migrations</h3>
+                    <p class="text-gray-700 mb-4 text-lg leading-relaxed">
+                        Successfully implemented extensive Odoo customizations across diverse business functions (sales, purchasing, projects, manufacturing) to meet client-specific needs. Expertly managed complex data and module migrations across Odoo versions (v14-v18), ensuring seamless upgrades and improved system performance with minimal downtime for businesses.
+                    </p>
+                    <p class="text-blue-600 font-medium text-base"><i class="fas fa-flask mr-2"></i>Technologies: Odoo, Python, PostgreSQL</p>
+                    <!-- <div class="mt-5 flex space-x-4">
+                        <a href="#" class="text-blue-700 hover:underline font-semibold flex items-center"><i class="fas fa-external-link-alt mr-2"></i> Live Demo</a>
+                        <a href="#" class="text-blue-700 hover:underline font-semibold flex items-center"><i class="fab fa-github mr-2"></i> GitHub Repo</a>
+                    </div> -->
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md project-card transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Custom Odoo App Store Module Development</h3>
+                    <p class="text-gray-700 mb-4 text-lg leading-relaxed">
+                        Designed, developed, and deployed innovative custom modules to the Odoo App Store, significantly extending out-of-the-box ERP functionalities. Provided ongoing maintenance and managed successful migrations for these applications across new Odoo versions, enhancing user experience and global usability.
+                    </p>
+                    <p class="text-blue-600 font-medium text-base"><i class="fas fa-flask mr-2"></i>Technologies: Odoo, Python</p>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md project-card transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Automated Workflows & Integrated Email Solutions</h3>
+                    <p class="text-gray-700 mb-4 text-lg leading-relaxed">
+                        Enhanced business efficiency and communication by implementing automated workflows within Odoo, coupled with custom email template integrations. This solution ensured instant, accurate, and seamless notifications for critical business events, drastically reducing manual tasks and improving response times.
+                    </p>
+                    <p class="text-blue-600 font-medium text-base"><i class="fas fa-flask mr-2"></i>Technologies: Odoo, Python</p>
+                </div>
+                <!-- Project 4 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md project-card transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Responsive Odoo Web Interface Design (OWL)</h3>
+                    <p class="text-gray-700 mb-4 text-lg leading-relaxed">
+                        Crafted and customized intuitive, modern Odoo website layouts and dynamic features using the Owl Framework. Focused on delivering highly responsive and performant interfaces across all devices, ensuring an optimal user experience and seamless interaction.
+                    </p>
+                    <p class="text-blue-600 font-medium text-base"><i class="fas fa-flask mr-2"></i>Technologies: OWL Framework, Odoo (Web), JavaScript, HTML, CSS</p>
+                </div>
+                <!-- Project 5 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md project-card transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Third-Party API Integration for Extended Odoo Functionality</h3>
+                    <p class="text-gray-700 mb-4 text-lg leading-relaxed">
+                        Successfully designed and implemented robust API integrations, enabling Odoo to connect flawlessly with various external applications and services. This facilitated secure, real-time data exchange and synchronization, extending Odoo's capabilities to provide comprehensive, interconnected business solutions.
+                    </p>
+                    <p class="text-blue-600 font-medium text-base"><i class="fas fa-flask mr-2"></i>Technologies: Odoo, Python, REST/SOAP APIs, JSON/XML</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-16 md:mb-24 bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-10 md:p-16 rounded-xl shadow-2xl text-center">
+            <h2 class="text-4xl font-bold mb-8 section-title section-title-white text-white">Ready to Boost Your Business with Odoo?</h2>
+            <p class="text-lg md:text-xl leading-relaxed mb-10">
+                I'm ready to take on your next Odoo development or customization project. Let's collaborate to solve your business challenges and enhance your ERP system. Reach out today for a consultation!
+            </p>
+            <div class="flex flex-col items-center space-y-6 md:space-y-0 md:flex-row md:justify-center md:space-x-12 text-xl">
+                <a href="mailto:sivaprakashrpm@gmail.com" class="flex items-center hover:underline hover:text-teal-200 transition-colors duration-300 font-semibold">
+                    <i class="fas fa-envelope text-3xl mr-3"></i>
+                    sivaprakashrpm@gmail.com
+                </a>
+                <a href="tel:+916382560315" class="flex items-center hover:underline hover:text-teal-200 transition-colors duration-300 font-semibold">
+                    <i class="fas fa-phone-alt text-3xl mr-3"></i>
+                    +916382560315
+                </a>
+                <!-- Updated LinkedIn/GitHub with actual links -->
+                <a href="https://www.linkedin.com/in/siva-prakash-86778916b" target="_blank" class="flex items-center hover:underline hover:text-teal-200 transition-colors duration-300 font-semibold">
+                    <i class="fab fa-linkedin text-3xl mr-3"></i>
+                    LinkedIn Profile
+                </a>
+                <a href="https://github.com/sivaprakash4040" target="_blank" class="flex items-center hover:underline hover:text-teal-200 transition-colors duration-300 font-semibold">
+                    <i class="fab fa-github text-3xl mr-3"></i>
+                    GitHub Profile
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-300 py-8 text-center text-sm">
+        <div class="container mx-auto px-6">
+            <p>&copy; <span id="current-year"></span> Siva Prakash. All rights reserved.</p>
+            <p class="mt-2 text-gray-400">Designed with <span class="text-red-500">&hearts;</span> for impactful Odoo solutions.</p>
+        </div>
+    </footer>
+
+    <button id="scroll-to-top-btn" class="scroll-to-top">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+
+    <script>
+        // Get the current year for the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Hide mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Scroll-to-top button functionality
+        const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show button after scrolling down 300px
+                scrollToTopBtn.style.display = 'flex'; /* Use flex to center icon */
+                scrollToTopBtn.style.alignItems = 'center';
+                scrollToTopBtn.style.justifyContent = 'center';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll to top
+            });
+        });
+    </script>
+</body>
+</html>
